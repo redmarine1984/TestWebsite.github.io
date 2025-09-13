@@ -11,6 +11,13 @@ body {
     color: var(--dark-bg);
 }
 
+label {
+  display: block;
+  font-family: 'Nanum Gothic';
+  padding-bottom: 10px;
+  font-size: 1.25em;
+}
+
 div.form {
   font-family: Roboto, sans-serif;
   background-image: url('https://github.com/CellphoneTherapy/CellphoneTherapy.github.io/blob/main/cellphone_background.png?raw=true');
