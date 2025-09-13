@@ -14,7 +14,7 @@ body {
 label {
   display: block;
   font-family: 'Nanum Gothic';
-  padding-bottom: 1px;
+  padding-bottom: 10px;
   font-size: 1.25em;
 }
 
@@ -50,14 +50,14 @@ div.form {
 }
 
 div.elem-group {
-  margin: 40px 0;
+  margin: 20px 0;
 }
 
 div.elem-group.inlined {
   width: 49%;
   display: inline-block;
   float: left;
-  margin-left: 10%;
+  margin-left: 1%;
 }
 
 .hero-section h1 {
