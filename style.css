@@ -50,12 +50,10 @@ body {
 }
 
 div.elem-group {
-  justify-content: center;
   margin: 20px 0;
 }
 
 div.elem-group.inlined {
-  justify-content: center;
   width: 49%;
   display: inline-block;
   float: left;
@@ -91,7 +89,7 @@ div.jumbotron {
   text-align: center;
   background-color: black;
   background-image: url('https://cdn.pixabay.com/photo/2018/04/30/21/19/mobile-phone-3364090_960_720.jpg');
-  background-position: center;
+  background-position: Right;
   background-repeat: no-repeat;
 }
 
