@@ -12,7 +12,7 @@ body {
 }
 
 .col-md-6 {
-  margin: 0 0 50px;
+  margin: 0 0 90px;
 }
 
 label {
@@ -23,7 +23,7 @@ label {
 }
 
 div.elem-group.inlined input {
-  width: 85%;
+  width: 45%;
   display: inline-block;
 }
 
