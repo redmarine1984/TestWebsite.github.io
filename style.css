@@ -51,7 +51,7 @@ body {
 
 div.elem-group {
     margin-bottom: 5px;
-    margin-top: 15px;
+    margin-top: 25px;
 }
 
 div.elem-group.inlined {
@@ -65,7 +65,7 @@ label {
     display: block;
     font-family: 'Nanum Gothic';
     margin-bottom: 5px;
-    margin-top: 15px;
+    margin-top: 25px;
     padding-bottom: 20px;
     font-size: 1.25em;
 }
