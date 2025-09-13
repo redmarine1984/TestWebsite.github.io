@@ -11,6 +11,10 @@ body {
     color: var(--dark-bg);
 }
 
+.col-md-6 {
+  margin: 0 0 30px;
+}
+
 label {
   display: block;
   font-family: 'Nanum Gothic';
