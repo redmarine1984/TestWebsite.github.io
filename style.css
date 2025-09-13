@@ -12,7 +12,7 @@ body {
 }
 
 .hero-section {
-    background: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), src="cellphone_background.png" no-repeat center center/cover;/*url('https://via.placeholder.com/1920x1080.png?text=Phone+Repair+Background')*/
+    background: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), url('https://github.com/redmarine1984/TestWebsite.github.io/blob/main/cellphone_background.png?text=Phone+Repair+Background') no-repeat center center/cover;/**/
     padding: 10rem 0;
 }
 
