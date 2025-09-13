@@ -11,6 +11,13 @@ body {
     color: var(--dark-bg);
 }
 
+.center {
+               display: block;
+               margin-left: auto;
+               margin-right: auto;
+               width: 50%;
+      }
+
 .jumbotron {justify-content: center;
                   text-align: center;
                   margin-left:auto;
