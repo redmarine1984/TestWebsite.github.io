@@ -50,10 +50,12 @@ body {
 }
 
 div.elem-group {
+  justify-content: center;
   margin: 20px 0;
 }
 
 div.elem-group.inlined {
+  justify-content: center;
   width: 49%;
   display: inline-block;
   float: left;
