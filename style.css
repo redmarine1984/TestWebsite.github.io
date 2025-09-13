@@ -89,7 +89,7 @@ div.jumbotron {
   text-align: center;
   background-color: black;
   background-image: url('https://raw.githubusercontent.com/redmarine1984/TestWebsite.github.io/refs/heads/main/cellphone_background.png');
-  background-position: Right;
+  background-position: left;
   background-repeat: no-repeat;
 }
 
