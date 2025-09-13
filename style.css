@@ -82,7 +82,7 @@ div.elem-group.inlined input {
   display: inline-block;
 }
 
-div.jumbotron {
+div.jumbotron1 {
   display: flex;
   align-items: center;
   background-color: black;
