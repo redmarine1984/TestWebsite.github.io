@@ -50,7 +50,7 @@ body {
 }
 
 div.elem-group {
-  margin: 1px 0;
+  margin-bottom: 5px 0;
 }
 
 div.elem-group.inlined {
@@ -63,6 +63,7 @@ div.elem-group.inlined {
 label {
   display: block;
   font-family: 'Nanum Gothic';
+  margin-bottom: 20px;
   padding-bottom: 20px;
   font-size: 1.25em;
 }
