@@ -50,7 +50,8 @@ body {
 }
 
 div.elem-group {
-  margin-bottom: 5px 0;
+    margin-bottom: 5px;
+    margin-top: 15px;
 }
 
 div.elem-group.inlined {
@@ -61,11 +62,12 @@ div.elem-group.inlined {
 }
 
 label {
-  display: block;
-  font-family: 'Nanum Gothic';
-  margin-bottom: 20px;
-  padding-bottom: 20px;
-  font-size: 1.25em;
+    display: block;
+    font-family: 'Nanum Gothic';
+    margin-bottom: 5px;
+    margin-top: 15px;
+    padding-bottom: 20px;
+    font-size: 1.25em;
 }
 
 input, select, textarea {
