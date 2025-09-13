@@ -11,6 +11,14 @@ body {
     color: var(--dark-bg);
 }
 
+body.form {
+  font-family: Roboto, sans-serif;
+  background-image: url('https://github.com/CellphoneTherapy/CellphoneTherapy.github.io/blob/main/cellphone_background.png?raw=true');
+  background-repeat: no-repeat;
+  background-position: center;  
+  background-color: black;
+}
+
 .center {
                display: block;
                margin-left: auto;
