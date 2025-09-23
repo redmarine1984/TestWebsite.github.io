@@ -28,8 +28,6 @@ const products = [
 
 let cart = [];
 
-
-
 function renderProducts() {
     const productList = document.getElementById('product-list');
     productList.innerHTML = '';
@@ -103,6 +101,5 @@ function checkout() {
 // Initial render of products when the page loads
 document.addEventListener('DOMContentLoaded', () => {
     renderProducts();
-    getImage();
     updateCartDisplay(); // Ensure cart count is correct on load
 });
