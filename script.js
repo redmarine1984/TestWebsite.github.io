@@ -35,7 +35,7 @@ function renderProducts() {
         const productCard = document.createElement('div');
         productCard.classList.add('product-card');
         productCard.innerHTML = `
-            <h3>${product.name}</h3>
+            <h3 style="font-size: 12px;">${product.name}</h3>
             <img src = ${product.img} width="75">
             <p>Price: $${product.price.toFixed(2)}</p>
             <button onclick="addToCart(${product.id})">Add to Cart</button>
