@@ -20,12 +20,6 @@ body {
     font-size: 3.5rem;
 }
 
-}
-
-.h3 {
-    font-size: 3.5rem;
-}
-
 .service-card {
     background: var(--light-bg);
     border: 1px solid #e9ecef;
