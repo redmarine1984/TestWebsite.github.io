@@ -14,9 +14,16 @@ document.addEventListener('DOMContentLoaded', (event) => {
 });
 
 const products = [
-    { id: 1, name: "Product A", price: 10.00 },
-    { id: 2, name: "Product B", price: 15.50 },
-    { id: 3, name: "Product C", price: 20.00 }
+    { id: 1, name: "iPhone 15 Otter Box", price: 29.99 },
+    { id: 2, name: "Dell Laptop", price: 499.99 },
+    { id: 3, name: "iPhone 16 256 Gb(Refurbished)", price: 399.99 },
+    { id: 4, name: "iPhone 15 256 Gb(Refurbished)", price: 299.99 },
+    { id: 5, name: "Samsung Galaxy 21(Refurbished)", price: 299.99 },
+    { id: 6, name: "Moto G Play(Refurbished)", price: 99.99 },
+    { id: 7, name: "Moto Razr(Refurbished)", price: 299.99 },
+    { id: 8, name: "Moto G Otter Box", price: 29.99 },
+    { id: 9, name: "iPhone 15 Otter Box", price: 39.99 },
+    { id: 10, name: "Acer Laptop", price: 299.99 }
 ];
 
 let cart = [];
