@@ -40,8 +40,7 @@
         </div>        
         <div class="cart-icon" onclick="toggleCart()">
             <a id="cart-popover" class="btn" data-placement="bottom" title="Shopping Cart">
-                <span class="glyphicon glyphicon-shopping-cart"></span>
-                 {{ $cart_total == 0 ? "Nothing In Cart!" : ("$ " . number_format($cart_total, 2, ',', '.'))   }}
+                <span class="glyphicon glyphicon-shopping-cart">0</span>
                 </a>
             🛒 <span id="cart-count">0</span>
         </div>
