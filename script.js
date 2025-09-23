@@ -14,7 +14,7 @@ document.addEventListener('DOMContentLoaded', (event) => {
 });
 
 const products = [
-    { id: 1, name: "iPhone 15 Otter Box", price: 29.99 },
+    { <img src="celltherapyicon2.0-removebg-preview.png" width="75" Alt="Cell Therapy Logo"> id: 1, name: "iPhone 15 Otter Box", price: 29.99 },
     { id: 2, name: "Dell Laptop", price: 499.99 },
     { id: 3, name: "iPhone 16 256 Gb(Refurbished)", price: 399.99 },
     { id: 4, name: "iPhone 15 256 Gb(Refurbished)", price: 299.99 },
