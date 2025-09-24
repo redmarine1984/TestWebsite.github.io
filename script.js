@@ -1,6 +1,6 @@
 document.addEventListener('DOMContentLoaded', (event) => {
     // Dynamically set the current year in the footer
-    document.getElementById('year').textContent = new Date().getFullYear();
+    //document.getElementById('year').textContent = new Date().getFullYear();
 
     // Smooth scrolling for navigation links
     document.querySelectorAll('a[href^="#"]').forEach(anchor => {
