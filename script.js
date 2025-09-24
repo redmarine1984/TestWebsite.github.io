@@ -13,39 +13,41 @@ document.addEventListener('DOMContentLoaded', (event) => {
     });
 });
 
-if (!window.indexedDB) {
-    console.log("Your browser doesn't support IndexedDB.");
-}
+function checkIndexedDB() {
+    if (!window.indexedDB) {
+        console.log("Your browser doesn't support IndexedDB.");
+    }
 
-if (window.indexedDB) {
-    console.log("Your browser does support IndexedDB.");
-}
+    if (window.indexedDB) {
+        console.log("Your browser does support IndexedDB.");
+    }
 
-let request = indexedDB.open("ProductDatabase", 1); // "ProductDatabase" is the name, 1 is the version
+    let request = indexedDB.open("ProductDatabase", 1); // "ProductDatabase" is the name, 1 is the version
 
-request.onupgradeneeded = function(event) {
+    request.onupgradeneeded = function(event) {
+            let db = event.target.result;
+            let ProductStore = db.createObjectStore("MyProductStore", { keyPath: "id", autoIncrement: true });
+            ProductStore.createIndex("nameIndex", "name", { unique: false });
+        };
+
+    request.onsuccess = function(event) {
         let db = event.target.result;
-        let ProductStore = db.createObjectStore("MyProductStore", { keyPath: "id", autoIncrement: true });
-        ProductStore.createIndex("nameIndex", "name", { unique: false });
+        // Database opened successfully, perform operations here
     };
 
-request.onsuccess = function(event) {
-    let db = event.target.result;
-    // Database opened successfully, perform operations here
-};
+    request.onerror = function(event) {
+         console.error("Database error:", event.target.errorCode);
+    };
 
-request.onerror = function(event) {
-     console.error("Database error:", event.target.errorCode);
-};
+    // To add data
+    let transaction = db.transaction(["MyProductStore"], "readwrite");
+    let ProductStore = transaction.objectStore("MyProductStore");
+    let addRequest = ProductStore.add({ name: "John Doe", age: 30 });
 
-// To add data
-let transaction = db.transaction(["MyProductStore"], "readwrite");
-let ProductStore = transaction.objectStore("MyProductStore");
-let addRequest = ProductStore.add({ name: "John Doe", age: 30 });
-
-addRequest.onsuccess = function() {
-    console.log("Data added successfully!");
-};
+    addRequest.onsuccess = function() {
+        console.log("Data added successfully!");
+    };
+}
 
 const products = [
     { id: 1, name: "iPhone 15 Otter Box ", price: 29.99, img: "https://i5.walmartimages.com/seo/OtterBox-Defender-Series-Pro-Case-for-Apple-iPhone-15-Plus-and-iPhone-14-Plus-Black_d947839e-28a3-4f42-a55e-5a296fb70d8f.d71b95f43f3874f3b102361dee39ccfd.jpeg?odnHeight=573&odnWidth=573&odnBg=FFFFFF"},
@@ -144,6 +146,7 @@ function checkout() {
 
 // Initial render of products when the page loads
 document.addEventListener('DOMContentLoaded', () => {
+    checkIndexedDB();
     renderProducts();
     updateCartDisplay(); // Ensure cart count is correct on load
 });
