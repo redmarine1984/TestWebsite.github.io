@@ -147,7 +147,7 @@ header {
 
 #shopping-cart {
     position: fixed;
-    top: 0;
+    top: 20;
     right: 0;
     width: 300px;
     height: 100%;
