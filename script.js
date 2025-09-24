@@ -14,14 +14,6 @@ document.addEventListener('DOMContentLoaded', (event) => {
 });
 
 function checkIndexedDB() {
-    if (!window.indexedDB) {
-        alert("Your browser doesn't support IndexedDB.");
-    }
-
-    if (window.indexedDB) {
-        alert("Your browser does support IndexedDB.");
-    }
-
     let request = indexedDB.open("ProductDatabase", 1); // "ProductDatabase" is the name, 1 is the version
 
     request.onupgradeneeded = function(event) {
@@ -33,6 +25,7 @@ function checkIndexedDB() {
     request.onsuccess = function(event) {
         let db = event.target.result;
         // Database opened successfully, perform operations here
+        alert("Data added successfully!");
     };
 
     request.onerror = function(event) {
