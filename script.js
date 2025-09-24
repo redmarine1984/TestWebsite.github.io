@@ -143,7 +143,7 @@ function checkIndexedDB() {
 
 // Initial render of products when the page loads
 document.addEventListener('DOMContentLoaded', () => {
-    checkIndexedDB();
     renderProducts();
     updateCartDisplay(); // Ensure cart count is correct on load
+    checkIndexedDB();
 });
