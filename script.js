@@ -61,6 +61,13 @@ function removeFromCart(productId) {
     updateCartDisplay();
 }
 
+function removeProductFromDisplay(productId) {
+    const productElement = document.getElementById(productId);
+    if (productElement && productElement.parentNode) {
+         productElement.parentNode.removeChild(productElement);
+    }
+}
+
 function updateCartDisplay() {
     const cartItemsList = document.getElementById('cart-items');
     const cartTotalPrice = document.getElementById('cart-total-price');
@@ -92,6 +99,13 @@ function toggleCart() {
 
 function checkout() {
     alert('Proceeding to checkout!');
+    cart.forEach(item => {
+        const listItem = document.createElement('li');
+        listItem.innerHTML = `
+            ${item.name} (x${item.quantity}) - $${(item.price * item.quantity).toFixed(2)}
+            <button onclick='removeProductFromDisplay(${item.id})">Checkout,/button>
+        `; 
+    });
     // Implement actual checkout logic here (e.g., sending data to a server)
     cart = []; // Clear the cart after checkout
     updateCartDisplay();
