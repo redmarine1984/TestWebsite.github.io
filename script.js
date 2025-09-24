@@ -61,12 +61,12 @@ function removeFromCart(productId) {
     updateCartDisplay();
 }
 
-//function removeProductFromDisplay(productId) {
-    //const productElement = document.getElementById(productId);
-    //if (productElement && productElement.parentNode) {
-        // productElement.parentNode.removeChild(productElement);
-    //}
-//}
+function removeProductFromDisplay(productId) {
+        const productElement = document.getElementById(productId);
+        if (productElement) {
+            productElement.remove();
+        }
+    }
 
 function updateCartDisplay() {
     const cartItemsList = document.getElementById('cart-items');
