@@ -114,31 +114,26 @@ function checkIndexedDB() {
     request.onupgradeneeded = function(event) {
             let db = event.target.result;
             let ProductStore = db.createObjectStore("MyProductStore", { keyPath: "id", autoIncrement: true });
-            ProductStore.createIndex("nameIndex", "name", { unique: false });
+            ProductStore.createIndex("ProductIndex", "Name", "Price", { unique: false });
         };
 
     request.onsuccess = function(event) {
         let db = event.target.result;
         // Database opened successfully, perform operations here
-         let transaction = db.transaction(["MyProductStore"], "readwrite");
-    let ProductStore = transaction.objectStore("MyProductStore");
-    let addRequest = ProductStore.add({ name: "John Doe", age: 30 });
+        let transaction = db.transaction(["MyProductStore"], "readwrite");
+        let ProductStore = transaction.objectStore("MyProductStore");
+        let addRequest = ProductStore.add({ name: "iPhone 15", Price: 350.00 });
 
-        console.log("Joe added successfully!");
+        addRequest.onsuccess = function() {
+            console.log("Product added successfully?!");
+        };
     };
 
     request.onerror = function(event) {
          console.error("Database error:", event.target.errorCode);
     };
 
-    // To add data
-    let transaction = db.transaction(["MyProductStore"], "readwrite");
-    let ProductStore = transaction.objectStore("MyProductStore");
-    let addRequest = ProductStore.add({ name: "John Doe", age: 30 });
-
-    addRequest.onsuccess = function() {
-        console.log("Data added successfully?!");
-    };
+    
 }
 
 // Initial render of products when the page loads
