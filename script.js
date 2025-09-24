@@ -13,16 +13,6 @@ document.addEventListener('DOMContentLoaded', (event) => {
     });
 });
 
-$(document).ready(function() {
- $('#cart-popover').popover({
-    html : true,
-    container: 'body',
-    content: function() {
-        return $('#popover_content_wrapper').html();
-    }
- });
-});
-
 const products = [
     { id: 1, name: "iPhone 15 Otter Box ", price: 29.99},
     { id: 2, name: "Dell Inspiron 3000 Laptop ", price: 499.99},
