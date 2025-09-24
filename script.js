@@ -13,35 +13,6 @@ document.addEventListener('DOMContentLoaded', (event) => {
     });
 });
 
-function checkIndexedDB() {
-    let request = indexedDB.open("ProductDatabase", 1); // "ProductDatabase" is the name, 1 is the version
-
-    request.onupgradeneeded = function(event) {
-            let db = event.target.result;
-            let ProductStore = db.createObjectStore("MyProductStore", { keyPath: "id", autoIncrement: true });
-            ProductStore.createIndex("nameIndex", "name", { unique: false });
-        };
-
-    request.onsuccess = function(event) {
-        let db = event.target.result;
-        // Database opened successfully, perform operations here
-        alert("Data added successfully!");
-    };
-
-    request.onerror = function(event) {
-         console.error("Database error:", event.target.errorCode);
-    };
-
-    // To add data
-    let transaction = db.transaction(["MyProductStore"], "readwrite");
-    let ProductStore = transaction.objectStore("MyProductStore");
-    let addRequest = ProductStore.add({ name: "John Doe", age: 30 });
-
-    addRequest.onsuccess = function() {
-        alert("Data added successfully!");
-    };
-}
-
 const products = [
     { id: 1, name: "iPhone 15 Otter Box ", price: 29.99, img: "https://i5.walmartimages.com/seo/OtterBox-Defender-Series-Pro-Case-for-Apple-iPhone-15-Plus-and-iPhone-14-Plus-Black_d947839e-28a3-4f42-a55e-5a296fb70d8f.d71b95f43f3874f3b102361dee39ccfd.jpeg?odnHeight=573&odnWidth=573&odnBg=FFFFFF"},
     { id: 2, name: "Dell Inspiron 3000 Laptop ", price: 499.99, img: "https://i5.walmartimages.com/seo/Dell-Inspiron-3000-Laptop-15-6-Non-touch-Intel-Celeron-Processor-N4020-Graphics-600-4GB-DDR4-Memory-128GB-SSD-Hard-Drive-Windows-10-Home-S-mode_b106bcee-6f1f-4c18-87fc-b1f9677d39df.65d263e5ab6bcaa6d9edae94627ece7f.jpeg"},
@@ -135,6 +106,39 @@ function checkout() {
     cart = []; // Clear the cart after checkout
     updateCartDisplay();
     toggleCart(); // Close the cart after checkout
+}
+
+function checkIndexedDB() {
+    let request = indexedDB.open("ProductDatabase", 1); // "ProductDatabase" is the name, 1 is the version
+
+    request.onupgradeneeded = function(event) {
+            let db = event.target.result;
+            let ProductStore = db.createObjectStore("MyProductStore", { keyPath: "id", autoIncrement: true });
+            ProductStore.createIndex("nameIndex", "name", { unique: false });
+        };
+
+    request.onsuccess = function(event) {
+        let db = event.target.result;
+        // Database opened successfully, perform operations here
+         let transaction = db.transaction(["MyProductStore"], "readwrite");
+    let ProductStore = transaction.objectStore("MyProductStore");
+    let addRequest = ProductStore.add({ name: "John Doe", age: 30 });
+
+        alert("Data added successfully!");
+    };
+
+    request.onerror = function(event) {
+         console.error("Database error:", event.target.errorCode);
+    };
+
+    // To add data
+    let transaction = db.transaction(["MyProductStore"], "readwrite");
+    let ProductStore = transaction.objectStore("MyProductStore");
+    let addRequest = ProductStore.add({ name: "John Doe", age: 30 });
+
+    addRequest.onsuccess = function() {
+        alert("Data added successfully!");
+    };
 }
 
 // Initial render of products when the page loads
