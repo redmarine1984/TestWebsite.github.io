@@ -15,11 +15,11 @@ document.addEventListener('DOMContentLoaded', (event) => {
 
 function checkIndexedDB() {
     if (!window.indexedDB) {
-        console.log("Your browser doesn't support IndexedDB.");
+        alert("Your browser doesn't support IndexedDB.");
     }
 
     if (window.indexedDB) {
-        console.log("Your browser does support IndexedDB.");
+        alert("Your browser does support IndexedDB.");
     }
 
     let request = indexedDB.open("ProductDatabase", 1); // "ProductDatabase" is the name, 1 is the version
@@ -45,7 +45,7 @@ function checkIndexedDB() {
     let addRequest = ProductStore.add({ name: "John Doe", age: 30 });
 
     addRequest.onsuccess = function() {
-        console.log("Data added successfully!");
+        alert("Data added successfully!");
     };
 }
 
