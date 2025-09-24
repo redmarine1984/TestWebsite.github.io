@@ -147,10 +147,10 @@ header {
 
 #shopping-cart {
     position: fixed;
-    top: 20;
+    top: 20px;
     right: 0;
     width: 300px;
-    height: 100%;
+    height: 90%;
     background-color: #f9f9f9;
     border-left: 1px solid #ccc;
     padding: 20px;
