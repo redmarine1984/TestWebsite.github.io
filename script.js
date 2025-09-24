@@ -30,7 +30,7 @@ let cart = [];
 
 function renderProducts() {
     const productList = document.getElementById('product-list');
-    productList.innerHTML = '';
+    productList.innerHTML = ``;
     products.forEach(product => {
         const productCard = document.createElement('div');
         productCard.classList.add('product-card');
