@@ -124,7 +124,7 @@ function checkIndexedDB() {
     let ProductStore = transaction.objectStore("MyProductStore");
     let addRequest = ProductStore.add({ name: "John Doe", age: 30 });
 
-        alert("Joe added successfully!");
+        console.log("Joe added successfully!");
     };
 
     request.onerror = function(event) {
@@ -137,7 +137,7 @@ function checkIndexedDB() {
     let addRequest = ProductStore.add({ name: "John Doe", age: 30 });
 
     addRequest.onsuccess = function() {
-        alert("Data added successfully?!");
+        console.log("Data added successfully?!");
     };
 }
 
