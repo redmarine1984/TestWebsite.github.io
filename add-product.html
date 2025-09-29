@@ -25,37 +25,56 @@
   <button onclick="logout()">Logout</button>
 
   <script>
-    // Redirect if not logged in
-    auth.onAuthStateChanged(user => {
-      if (!user) {
-        alert("You must be logged in to view this page.");
-        window.location.href = "index.html";
-      }
-    });
+  // Ensure user is authenticated
+  auth.onAuthStateChanged(user => {
+    if (!user) {
+      alert("You must be logged in.");
+      window.location.href = "index.html";
+    }
+  });
 
-    function addProduct(event) {
-      event.preventDefault();
+  async function addProduct(event) {
+    event.preventDefault();
 
-      const name = document.getElementById("productName").value;
-      const price = parseFloat(document.getElementById("productPrice").value);
+    const name = document.getElementById("productName").value;
+    const price = parseFloat(document.getElementById("productPrice").value);
+    const imageFile = document.getElementById("productImage").files[0];
 
-      db.collection("products").add({
-        name: name,
-        price: price,
+    if (!imageFile) {
+      alert("Please select an image.");
+      return;
+    }
+
+    try {
+      // Generate unique file name
+      const timestamp = Date.now();
+      const storageRef = firebase.storage().ref(`product-images/${timestamp}-${imageFile.name}`);
+
+      // Upload image
+      const snapshot = await storageRef.put(imageFile);
+      const imageUrl = await snapshot.ref.getDownloadURL();
+
+      // Save product info to Firestore
+      await db.collection("products").add({
+        name,
+        price,
+        imageUrl,
         createdAt: firebase.firestore.FieldValue.serverTimestamp()
-      }).then(() => {
-        alert("Product added!");
-        event.target.reset();
-      }).catch(err => {
-        alert("Error adding product: " + err.message);
       });
-    }
 
-    function logout() {
-      auth.signOut().then(() => {
-        window.location.href = "index.html";
-      });
+      alert("Product added successfully!");
+      event.target.reset();
+    } catch (err) {
+      alert("Error: " + err.message);
     }
-  </script>
+  }
+
+  function logout() {
+    auth.signOut().then(() => {
+      window.location.href = "index.html";
+    });
+  }
+</script>
+
 </body>
 </html>
