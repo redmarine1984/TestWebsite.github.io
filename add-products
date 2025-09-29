@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Add Product</title>
+  <script src="https://www.gstatic.com/firebasejs/9.0.0/firebase-app-compat.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/9.0.0/firebase-auth-compat.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/9.0.0/firebase-firestore-compat.js"></script>
+  <script src="firebase.js"></script>
+</head>
+<body>
+  <h2>Add Product</h2>
+
+  <form onsubmit="addProduct(event)">
+    <input type="text" id="productName" placeholder="Product Name" required><br><br>
+    <input type="number" id="productPrice" placeholder="Price" required><br><br>
+    <button type="submit">Add Product</button>
+  </form>
+
+  <br>
+  <button onclick="logout()">Logout</button>
+
+  <script>
+    // Redirect if not logged in
+    auth.onAuthStateChanged(user => {
+      if (!user) {
+        alert("You must be logged in to view this page.");
+        window.location.href = "index.html";
+      }
+    });
+
+    function addProduct(event) {
+      event.preventDefault();
+
+      const name = document.getElementById("productName").value;
+      const price = parseFloat(document.getElementById("productPrice").value);
+
+      db.collection("products").add({
+        name: name,
+        price: price,
+        createdAt: firebase.firestore.FieldValue.serverTimestamp()
+      }).then(() => {
+        alert("Product added!");
+        event.target.reset();
+      }).catch(err => {
+        alert("Error adding product: " + err.message);
+      });
+    }
+
+    function logout() {
+      auth.signOut().then(() => {
+        window.location.href = "index.html";
+      });
+    }
+  </script>
+</body>
+</html>
