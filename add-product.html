@@ -48,17 +48,16 @@
     try {
       // Generate unique file name
       const timestamp = Date.now();
-      const storageRef = firebase.storage().ref(`product-images/${timestamp}-${imageFile.name}`);
+      //const storageRef = firebase.storage().ref(`product-images/${timestamp}-${imageFile.name}`);
 
       // Upload image
-      const snapshot = await storageRef.put(imageFile);
-      const imageUrl = await snapshot.ref.getDownloadURL();
+      //const snapshot = await storageRef.put(imageFile);
+      //const imageUrl = await snapshot.ref.getDownloadURL();
 
       // Save product info to Firestore
       await db.collection("products").add({
         name,
         price,
-        imageUrl,
         createdAt: firebase.firestore.FieldValue.serverTimestamp()
       });
 
