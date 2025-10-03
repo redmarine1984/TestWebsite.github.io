@@ -15,7 +15,7 @@
   <input type="number" id="productPrice" placeholder="Price" required><br><br>
 
   <!-- Add image input -->
-  <input type="file" id="productImage" accept="image/*" required><br><br>
+  <!--input type="file" id="productImage" accept="image/*" required><br><br-->
 
   <button type="submit">Add Product</button>
 </form>
@@ -38,12 +38,12 @@
 
     const name = document.getElementById("productName").value;
     const price = parseFloat(document.getElementById("productPrice").value);
-    const imageFile = document.getElementById("productImage").files[0];
+    //const imageFile = document.getElementById("productImage").files[0];
 
-    if (!imageFile) {
-      alert("Please select an image.");
-      return;
-    }
+    //if (!imageFile) {
+      //alert("Please select an image.");
+      //return;
+    //}
 
     try {
       // Generate unique file name
