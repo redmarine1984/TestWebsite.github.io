@@ -3,32 +3,33 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>My Products</title>
-    <style>
-        .products-container {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-            gap: 20px;
-            padding: 20px;
-        }
-        .product-card {
-            border: 1px solid #ccc;
-            padding: 15px;
-            text-align: center;
-        }
-        .product-card img {
-            max-width: 100%;
-            height: auto;
-            margin-bottom: 10px;
-        }
-    </style>
+    <title>Add New Product</title>
+    <!-- Link to your CSS file for styling -->
+    <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    <h1>Our Products</h1>
-    <div id="products-container" class="products-container">
-        <!-- Products will be dynamically loaded here -->
-    </div>
+    <header>
+        <h1>Add New Product</h1>
+    </header>
+    <main>
+        <form id="addProductForm">
+            <label for="productName">Product Name:</label>
+            <input type="text" id="productName" name="productName" required>
 
-    <script type="module" src="your-script.js"></script> <!-- Link your JavaScript file -->
+            <label for="productPrice">Price:</label>
+            <input type="number" id="productPrice" name="productPrice" step="0.01" required>
+
+            <label for="productImage">Product Image:</label>
+            <input type="file" id="productImage" name="productImage" accept="image/*" required>
+
+            <button type="submit">Add Product</button>
+        </form>
+    </main>
+    <footer>
+        <!-- Optional: Footer content -->
+    </footer>
+    <!-- Link to your JavaScript file for handling form submission and Stytch integration.-->
+    <!--Make sure to change to script.js before Publishing-->
+    <script src="Test.js"></script>
 </body>
 </html>
